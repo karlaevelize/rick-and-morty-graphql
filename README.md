@@ -17,7 +17,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 ```js
 const client = new ApolloClient({
-  uri: "https://flyby-gateway.herokuapp.com/",
+  uri: "API_URL_GOES_HERE",
   cache: new InMemoryCache(),
 });
 ```
