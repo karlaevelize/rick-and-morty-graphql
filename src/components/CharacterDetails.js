@@ -1,30 +1,13 @@
 import { useQuery, gql } from "@apollo/client";
+import { getCharacter } from "../gql/getCharacter.query";
 
-export const CharacterDetails = () => {
-  //
-  const getCharacter = gql`
-    query Character($characterId: ID!) {
-      character(id: $characterId) {
-        created
-        name
-        species
-        status
-        type
-        image
-        gender
-        episode {
-          name
-          episode
-        }
-      }
-    }
-  `;
-
+export const CharacterDetails = ({ id }) => {
   const { loading, error, data } = useQuery(getCharacter, {
     variables: { characterId: 1 },
   });
 
-  console.log("data", data);
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
 
   return (
     <div>

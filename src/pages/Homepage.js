@@ -1,15 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
-
-const getCharacters = gql`
-  query Characters {
-    characters {
-      results {
-        name
-        image
-      }
-    }
-  }
-`;
+import { getCharacters } from "../gql";
 
 export const Homepage = () => {
   const { loading, error, data } = useQuery(getCharacters);
